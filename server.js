@@ -82,13 +82,15 @@ app.delete("/products/:id", async (req, res) => {
   }
 });
 
+const mongoURI =
+  "mongodb+srv://admin:Sabree8647@cluster0.io6m987.mongodb.net/Node-API?retryWrites=true&w=majority";
+const PORT = 3000;
+
 mongoose
-  .connect(
-    "mongodb+srv://admin:Sabree8647@cluster0.io6m987.mongodb.net/Node-API?retryWrites=true&w=majority"
-  )
+  .connect(mongoURI)
   .then(() => {
     console.log("connected to mongodb");
-    app.listen(3000, () => {
+    app.listen(PORT, () => {
       console.log("App is running on port 3000");
     });
   })
